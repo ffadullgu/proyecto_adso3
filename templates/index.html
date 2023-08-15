@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Proyecto</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 2px solid MediumSeaGreen;
+            padding: 8px;
+            text-align: center;
+            color=white;
+        }
+        th {
+            background-color: SeaGreen;
+            color=white;
+        }
+        input{
+          border: 2px solid MediumSeaGreen;
+        }
+        button {
+            background-color: MediumSeaGreen;
+            border:none;
+            font-size: 16px;
+            color: white;
+            border-radius: 8px;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulario de Aprendiz</h2>
+    
+    <form id="data-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="celular">Celular:</label>
+        <input type="tel" id="celular" name="celular" required><br><br>
+        
+        <button type="submit" style="color:white">Agregar</button>
+        
+    </form>
+    
+    <h2>Registros de aprendices</h2>
+    <table>
+    <tr>
+            <th><font color="white">Nombre</font></th>
+            <th><font color="white">Apellido</font></th>
+            <th><font color="white">Email</font></th>
+            <th><font color="white">Celular</font></th>
+            <th><font color="white">Acciones</font></th>
+        </tr>
+    </table>
+    
+    <script>
+        const form = document.getElementById('data-form');
+        const table = document.querySelector('table');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const email = document.getElementById('email').value;
+            const celular = document.getElementById('celular').value;
+
+            const newRow = table.insertRow(-1);
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+            const cell4 = newRow.insertCell(3);
+            const cell5 = newRow.insertCell(4);
+
+            cell1.innerHTML = nombre;
+            cell2.innerHTML = apellido;
+            cell3.innerHTML = email;
+            cell4.innerHTML = celular;
+            cell5.innerHTML = '<button onclick="ver()">Consultar</button> <button onclick="editar()">Editar</button> <button onclick="eliminar()" >Eliminar</button>';
+            
+            form.reset();
+        });
+
+        function ver() {
+            // Implementar lógica para ver el registro
+            alert('Ver registro');
+        }
+
+        function editar() {
+            // Implementar lógica para editar el registro
+            alert('Editar registro');
+        }
+
+        function eliminar() {
+            // Implementar lógica para eliminar el registro
+            alert('Eliminar registro');
+        }
+    </script>
+</body>
+</html>
